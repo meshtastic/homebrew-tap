@@ -6,6 +6,9 @@ class Meshtasticd < Formula
   version "2.7.23"
   sha256 "c0fa5e88ab038e3b98b64eb5c8c7c45e2b724055d45cb98eea4bc194a7ab50ed"
   license "GPL-3.0-only"
+  # Update 'revision' when making changes so that updates work correctly.
+  # Remove when bumping 'version'.
+  revision 1
   head "https://github.com/meshtastic/firmware.git", branch: "master"
 
   depends_on "pkgconf" => :build
