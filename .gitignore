@@ -1,0 +1,8 @@
+# Ignore macOS and Homebrew build artifacts
+*.DS_Store
+*.swp
+*.o
+*.a
+*.log
+*.tar.gz
+*.bottle.*
