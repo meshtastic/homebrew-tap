@@ -1,19 +1,23 @@
 # Meshtastic Tap
-Homebrew Tap for Meshtastic formulae
+🍺 Homebrew Tap for Meshtastic formulae
 
-## How do I install these formulae?
+Supported: 🍎 MacOS 15 'Sequoia' and later.
+
+## Packages
+
+- [🛜 meshtasticd](Formula/meshtasticd.rb): Meshtastic daemon for MacOS.
+
+## Installation
 
 `brew install meshtastic/tap/meshtasticd`
 
-Or `brew tap meshtastic/tap` and then `brew install meshtasticd`.
-
-Or, in a `brew bundle` `Brewfile`:
-
-```ruby
-tap "meshtastic/tap"
-brew "meshtasticd"
+Or
+```shell
+brew tap meshtastic/tap
+brew install meshtasticd
 ```
 
 ## Documentation
 
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+- [`meshtasticd` Documentation](https://meshtastic.org/docs/linux/)
+- `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
