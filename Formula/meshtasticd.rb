@@ -8,13 +8,8 @@ class Meshtasticd < Formula
   license "GPL-3.0-only"
   # Update 'revision' when making changes so that updates work correctly.
   # Remove when bumping 'version'.
-  revision 1
+  revision 2
   head "https://github.com/meshtastic/firmware.git", branch: "master"
-
-  bottle do
-    root_url "https://github.com/meshtastic/homebrew-tap/releases/download/meshtasticd-2.7.23_1"
-    sha256 cellar: :any, arm64_tahoe: "8ac522664e8732244a7c628c5bb29898234150c17760ccaef6bcac62e59414d7"
-  end
 
   depends_on "pkgconf" => :build
   depends_on "platformio" => :build
