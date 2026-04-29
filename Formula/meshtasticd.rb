@@ -8,7 +8,7 @@ class Meshtasticd < Formula
   license "GPL-3.0-only"
   # Update 'revision' when making changes so that updates work correctly.
   # Remove when bumping 'version'.
-  revision 5
+  revision 6
   head "https://github.com/meshtastic/firmware.git", branch: "master"
 
   bottle do
@@ -50,7 +50,7 @@ class Meshtasticd < Formula
     end
     inreplace "bin/config-dist.yaml" do |s|
       s.gsub! "/etc/meshtasticd", pkgetc
-      s.gsub! "/usr/share/meshtasticd", pkgshare
+      s.gsub! "/usr/share/meshtasticd", "#{HOMEBREW_PREFIX}/share/meshtasticd"
       s.gsub! "/var/log", var/"log"
     end
     pkgetc.install "bin/config-dist.yaml" => "config.yaml"
