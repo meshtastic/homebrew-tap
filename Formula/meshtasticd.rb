@@ -8,7 +8,7 @@ class Meshtasticd < Formula
   license "GPL-3.0-only"
   # Update 'revision' when making changes so that updates work correctly.
   # Remove when bumping 'version'.
-  revision 3
+  revision 4
   head "https://github.com/meshtastic/firmware.git", branch: "master"
 
   bottle do
@@ -34,7 +34,7 @@ class Meshtasticd < Formula
     ENV["PLATFORMIO_SETTING_CHECK_PRUNE_SYSTEM_THRESHOLD"] = "10240"
     system "platformio", "run", "-e", "native-macos"
     bin.install ".pio/build/native-macos/meshtasticd"
-    (var/"meshtasticd").mkpath
+    (var/"lib/meshtasticd").mkpath
     (pkgetc/"available.d").mkpath
     (pkgetc/"available.d").install Dir["bin/config.d/*"]
     (pkgetc/"config.d").mkpath
@@ -43,7 +43,7 @@ class Meshtasticd < Formula
   end
 
   service do
-    run [opt_bin/"meshtasticd", "--config", etc/"meshtasticd/config.yaml", "--fsdir", var/"meshtasticd"]
+    run [opt_bin/"meshtasticd", "--config", etc/"meshtasticd/config.yaml", "--fsdir", var/"lib/meshtasticd"]
     keep_alive true
     log_path var/"log/meshtasticd.log"
     error_log_path var/"log/meshtasticd.log"
