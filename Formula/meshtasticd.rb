@@ -8,7 +8,7 @@ class Meshtasticd < Formula
   license "GPL-3.0-only"
   # Update 'revision' when making changes so that updates work correctly.
   # Remove when bumping 'version'.
-  revision 4
+  revision 5
   head "https://github.com/meshtastic/firmware.git", branch: "master"
 
   bottle do
@@ -27,6 +27,11 @@ class Meshtasticd < Formula
   depends_on "openssl@3"
   depends_on "yaml-cpp"
 
+  resource "web" do
+    url "https://github.com/meshtastic/web/releases/download/v2.6.7/build.tar"
+    sha256 "a34f4360a0486543a698de20de533557492e763ab459fc27fcea95d0495144ed"
+  end
+
   def install
     ENV["PLATFORMIO_CORE_DIR"] = buildpath/".platformio"
     ENV["PLATFORMIO_SETTING_ENABLE_TELEMETRY"] = "0"
@@ -35,10 +40,19 @@ class Meshtasticd < Formula
     system "platformio", "run", "-e", "native-macos"
     bin.install ".pio/build/native-macos/meshtasticd"
     (var/"lib/meshtasticd").mkpath
+    (pkgetc/"config.d").mkpath
     (pkgetc/"available.d").mkpath
     (pkgetc/"available.d").install Dir["bin/config.d/*"]
-    (pkgetc/"config.d").mkpath
-    inreplace "bin/config-dist.yaml", "/etc/meshtasticd", pkgetc
+    (pkgshare/"web").mkpath
+    resource("web").stage do
+      system "gzip", "-dr", "."
+      (pkgshare/"web").install Dir["*"]
+    end
+    inreplace "bin/config-dist.yaml" do |s|
+      s.gsub! "/etc/meshtasticd", pkgetc
+      s.gsub! "/usr/share/meshtasticd", pkgshare
+      s.gsub! "/var/log", var/"log"
+    end
     pkgetc.install "bin/config-dist.yaml" => "config.yaml"
   end
 
