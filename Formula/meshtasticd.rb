@@ -8,7 +8,7 @@ class Meshtasticd < Formula
   license "GPL-3.0-only"
   # Update 'revision' when making changes so that updates work correctly.
   # Remove when bumping 'version'.
-  revision 2
+  revision 3
   head "https://github.com/meshtastic/firmware.git", branch: "master"
 
   bottle do
@@ -45,6 +45,8 @@ class Meshtasticd < Formula
   service do
     run [opt_bin/"meshtasticd", "--config", etc/"meshtasticd/config.yaml", "--fsdir", var/"meshtasticd"]
     keep_alive true
+    log_path var/"log/meshtasticd.log"
+    error_log_path var/"log/meshtasticd.log"
   end
 
   # The test will check if meshtasticd can be executed.
