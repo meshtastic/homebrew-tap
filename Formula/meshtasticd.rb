@@ -2,13 +2,13 @@ class Meshtasticd < Formula
   desc "Meshtastic Node software for MacOS"
   homepage "https://github.com/meshtastic/firmware"
   # Use a commit hash from `master` where MacOS support is present.
-  url "https://github.com/meshtastic/firmware/archive/0240a00d0934e021dea8fab56630a67b41676284.tar.gz"
+  url "https://github.com/meshtastic/firmware/archive/7cb071c780d7cb4290d7b39ac1a399dc62437901.tar.gz"
   version "2.7.23"
-  sha256 "9bd2ae1fe40254857bd0875eb32f1c2beb1ef4d50a271f490eb4d24ff4c97038"
+  sha256 "ebcc747604fd81df8c22b0137779f3977e1d42d27c37a439b69a9b4693f44410"
   license "GPL-3.0-only"
   # Update 'revision' when making changes so that updates work correctly.
   # Remove when bumping 'version'.
-  revision 7
+  revision 8
   head "https://github.com/meshtastic/firmware.git", branch: "master"
 
   bottle do
