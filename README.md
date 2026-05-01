@@ -19,5 +19,5 @@ brew install meshtasticd
 
 ## Documentation
 
-- [`meshtasticd` Documentation](https://meshtastic.org/docs/linux/)
+- [`meshtasticd` Documentation](https://meshtastic.org/docs/meshtasticd/)
 - `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
