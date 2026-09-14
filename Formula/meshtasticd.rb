@@ -7,7 +7,8 @@ class Meshtasticd < Formula
   license "GPL-3.0-only"
   # Update 'revision' when making changes so that updates work correctly.
   # Remove when bumping 'version'.
-  head "https://github.com/meshtastic/firmware.git", branch: "master"
+  revision 1
+  head "https://github.com/meshtastic/firmware.git", branch: "develop"
 
   bottle do
     root_url "https://github.com/meshtastic/homebrew-tap/releases/download/meshtasticd-2.7.26"
