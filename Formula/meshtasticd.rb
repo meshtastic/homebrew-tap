@@ -11,9 +11,10 @@ class Meshtasticd < Formula
   head "https://github.com/meshtastic/firmware.git", branch: "develop"
 
   bottle do
-    root_url "https://github.com/meshtastic/homebrew-tap/releases/download/meshtasticd-2.7.26"
-    sha256 cellar: :any, arm64_tahoe:   "04ac05a01e76a5d316dc05190899c3c27d187453f6f2890348b8b2b6edb77a34"
-    sha256 cellar: :any, arm64_sequoia: "f31b5dd2732e77cec5eb6fcad407053401fd91399e3ea27180c317362258f33f"
+    root_url "https://github.com/meshtastic/homebrew-tap/releases/download/meshtasticd-2.7.26_1"
+    sha256 cellar: :any, arm64_golden_gate: "f845705f8b88622480c372f387877858f758cce7569ffd11e1875458bd0c6175"
+    sha256 cellar: :any, arm64_tahoe:       "382baf8926c6287b910b01f4e7c80a7f0a4d253fd7352771b22734d983dbfdef"
+    sha256 cellar: :any, arm64_sequoia:     "4f4caea901099245e43d4f88e514329b4fa5dedafe5b00358c02398e56afc3dd"
   end
 
   depends_on "pkgconf" => :build
